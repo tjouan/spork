@@ -19,6 +19,7 @@ class Spork::TestFramework::RSpec < Spork::TestFramework
   end
 
   def use_rspec_command_line?
-    ::RSpec::Core::CommandLine.instance_methods(false).include? :run
+    defined? ::RSpec::Core::CommandLine and
+      ::RSpec::Core::CommandLine.instance_methods(false).include? :run
   end
 end
